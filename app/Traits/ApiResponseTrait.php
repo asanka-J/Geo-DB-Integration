@@ -28,4 +28,9 @@ trait ApiResponseTrait
             'status' => $status_code,
         ];
     }
+
+    // Extract the data from the response
+    public function getData($response){
+        return $response->data;
+    }
 }

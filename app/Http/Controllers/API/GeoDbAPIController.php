@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Service\GeoDBCountriesService;
 use App\Service\GeoDBCitiesService;
@@ -12,7 +13,7 @@ use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Exception\RequestException;
 
 
-class GeoDBController extends Controller
+class GeoDbAPIController extends Controller
 {
     use ApiResponseTrait;
     private $geoDBCitiesService,$geoDBCountriesService ;
@@ -43,12 +44,12 @@ class GeoDBController extends Controller
     public function getCountryDetails(Request $request){
 
         $validatedData = $request->validate([
-            'country_id' => 'required|string',
+            'country' => 'required|string',
         ]);
 
 
         try {
-            $country_id = $validatedData['country_id'];
+            $country_id = $validatedData['country'];
             $apiResponse = $this->geoDBCountriesService->getCountryDetails($country_id);
             $response_data = $this->processSuccessResponse($apiResponse);
         }catch (\Exception $e) {
@@ -130,6 +131,5 @@ class GeoDBController extends Controller
         return response()->json($response_data);
 
     }
-
 
 }

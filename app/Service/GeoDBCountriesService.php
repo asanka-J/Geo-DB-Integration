@@ -17,11 +17,12 @@ class GeoDBCountriesService extends GeoDBAbstractBaseService
         return $this->makeRequest('GET', $url, $options)->data;
     }
 
+    // Get the list of countries - due to free account restrictions - rate limit applied
     public function getCountryList()
     {
         $countries = [];
         for ($offset = 0; $offset <= 1; $offset++) {
-            $countries=array_merge($countries,$this->getCountries($offset));
+            $countries=array_merge($countries,$this->getCountries($offset)); // merged due to paginated data
             sleep(2); // added sleeping time to avoid rate limit on the API
         }
         return $countries;

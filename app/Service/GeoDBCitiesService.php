@@ -24,6 +24,20 @@ class GeoDBCitiesService extends GeoDBAbstractBaseService
         return $this->makeRequest('GET', $url, $options);
     }
 
+    public function getCityListByCountry($country)
+    {
+        $url = "{$this->geoApiBase}/geo/cities";
+        $options = [
+            'headers' => [
+                'X-RapidAPI-Key' => $this->geoApiKey,
+            ],
+            'query' => [
+                'countryIds' => $country
+            ],
+        ];
+        return $this->makeRequest('GET', $url, $options);
+    }
+
     public function getCityDetails($city_id)
     {
         $url = "{$this->geoApiBase}/geo/cities/{$city_id}";
@@ -44,6 +58,21 @@ class GeoDBCitiesService extends GeoDBAbstractBaseService
             ],
             'query' => [
                 'radius' => $radius,
+            ],
+        ];
+        return $this->makeRequest('GET', $url, $options);
+    }
+
+    public function findCityByCountryAndName($country,$capital_city_name)
+    {
+        $url = "{$this->geoApiBase}/geo/cities";
+        $options = [
+            'headers' => [
+                'X-RapidAPI-Key' => $this->geoApiKey,
+            ],
+            'query' => [
+                'countryIds' => $country,
+                'namePrefix'=> $capital_city_name
             ],
         ];
         return $this->makeRequest('GET', $url, $options);
