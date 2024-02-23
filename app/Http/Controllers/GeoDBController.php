@@ -109,5 +109,27 @@ class GeoDBController extends Controller
 
     }
 
+    public function getCitiesNearByCityId(Request $request){
+
+        $validatedData = $request->validate([
+            'city_id' => 'required|string',
+        ]);
+
+        try {
+            $city_id = $validatedData['city_id'];
+            $apiResponse = $this->geoDBCitiesService->getNearbyCities($city_id,10);
+            $response_data = $this->processSuccessResponse($apiResponse);
+        }catch (\Exception $e) {
+            $error_code = 500;
+            if ($e instanceof ClientException || $e instanceof ServerException || $e instanceof RequestException) {
+                $error_code = $e->getResponse()->getStatusCode();
+            }
+
+            $response_data = $this->handleException($e, $error_code);
+        }
+        return response()->json($response_data);
+
+    }
+
 
 }

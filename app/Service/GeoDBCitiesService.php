@@ -34,4 +34,18 @@ class GeoDBCitiesService extends GeoDBAbstractBaseService
         ];
         return $this->makeRequest('GET', $url, $options);
     }
+
+    public function getNearbyCities($city_id, $radius = 100)
+    {
+        $url = "{$this->geoApiBase}/geo/cities/{$city_id}/nearbyCities";
+        $options = [
+            'headers' => [
+                'X-RapidAPI-Key' => $this->geoApiKey,
+            ],
+            'query' => [
+                'radius' => $radius,
+            ],
+        ];
+        return $this->makeRequest('GET', $url, $options);
+    }
 }
