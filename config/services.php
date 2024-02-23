@@ -30,5 +30,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'geodb' => [
+        'endpoint' => env('GEODB_ENDPOINT'),
+        'api_key' => env('GEODB_API_KEY'),
+        'limit' => env('GEODB_API_LIMIT')
+    ],
 
 ];

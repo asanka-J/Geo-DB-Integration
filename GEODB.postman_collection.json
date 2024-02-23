@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "0f2ffb81-5018-4cd7-a03b-68ce113a2898",
+		"name": "GEODB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1946953"
+	},
+	"item": [
+		{
+			"name": "Countries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "wft-geo-db.p.rapidapi.co",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/geo/countries",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"geo",
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Country Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "wft-geo-db.p.rapidapi.co",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/geo/countries/GB",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"geo",
+						"countries",
+						"GB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "City details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "wft-geo-db.p.rapidapi.co",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/geo/cities/Q60",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"geo",
+						"cities",
+						"Q60"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cities by country",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "wft-geo-db.p.rapidapi.co",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/geo/cities?countryIds=GB",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"geo",
+						"cities"
+					],
+					"query": [
+						{
+							"key": "countryIds",
+							"value": "GB"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
