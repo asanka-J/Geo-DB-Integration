@@ -32,7 +32,7 @@ class GeoDBSearchController extends Controller
         try {
             $country = $validatedData['country'];
             $apiResponse = $this->geoDBSearchService->searchByCountry($country);
-            $response_data = $this->getData($apiResponse);
+            $response_data = $apiResponse;
         }catch (\Exception $e) {
             $error_code = 500;
             if ($e instanceof ClientException || $e instanceof ServerException || $e instanceof RequestException) {

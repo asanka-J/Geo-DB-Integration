@@ -12,7 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50vh;
+      height: 20vh;
     }
     .centered-results {
       display: flex;
@@ -47,7 +47,7 @@
             </form>
         </div>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-1">
         <div class="col-md-6">
             <ul class="results" id="results"></ul>
         </div>
