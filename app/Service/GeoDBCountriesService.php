@@ -22,10 +22,8 @@ class GeoDBCountriesService extends GeoDBAbstractBaseService
         $countries = [];
         for ($offset = 0; $offset <= 1; $offset++) {
             $countries=array_merge($countries,$this->getCountries($offset));
-            sleep(2);
+            sleep(2); // added sleeping time to avoid rate limit on the API
         }
-        // dd($countries);
-
         return $countries;
     }
 

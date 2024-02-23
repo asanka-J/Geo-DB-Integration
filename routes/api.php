@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/countries', [GeoDBController::class, 'getCountryList'])->name('api.country.list');
 Route::get('/country', [GeoDBController::class, 'getCountryDetails'])->name('api.country.detail');
+
+Route::get('/cities', [GeoDBController::class, 'getCitiesByCountry'])->name('api.cities.list');
+Route::get('/city', [GeoDBController::class, 'getCityDetailsById'])->name('api.city.detail');
