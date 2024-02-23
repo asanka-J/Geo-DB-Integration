@@ -24,3 +24,4 @@ Route::get('/country', [GeoDBController::class, 'getCountryDetails'])->name('api
 
 Route::get('/cities', [GeoDBController::class, 'getCitiesByCountry'])->name('api.cities.list');
 Route::get('/city', [GeoDBController::class, 'getCityDetailsById'])->name('api.city.detail');
+Route::get('/city/nearby', [GeoDBController::class, 'getCitiesNearByCityId'])->name('api.city.nearby');
